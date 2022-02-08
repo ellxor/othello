@@ -1,6 +1,7 @@
 warnings = -Wextra
 optimize = -O3 -march=native
-includes = -Isrc
+source   = ../src
+includes = -I$source
 
 rule cc
   command = cc -c $in -o $out $includes $warnings $optimize
@@ -8,8 +9,8 @@ rule cc
 rule link
   command = cc $in -o $out $optimize
 
-build build/magic.o: cc src/magic.c
-build build/main.o : cc src/main.c
-build build/othello: link build/magic.o build/main.o
+build magic.o: cc $source/magic.c
+build main.o : cc $source/main.c
+build othello: link magic.o main.o
 
-default build/othello
+default othello
