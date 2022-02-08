@@ -11,6 +11,7 @@ rule link
 
 build magic.o: cc $source/magic.c
 build main.o : cc $source/main.c
-build othello: link magic.o main.o
+build perft.o: cc $source/perft.c
+build othello: link magic.o main.o perft.o
 
 default othello
