@@ -11,6 +11,6 @@ A simple othello engine in development written in C.
 ```
 git clone https://github.com/ellxor/othello
 cd othello
-ninja
+ninja -C build
 ./build/othello
 ```
