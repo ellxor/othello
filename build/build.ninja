@@ -7,7 +7,7 @@ rule cc
   command = cc -c $in -o $out $includes $warnings $optimize
 
 rule link
-  command = cc $in -o $out $optimize
+  command = cc $in -o $out $optimize -lpthread
 
 build magic.o: cc $source/magic.c
 build main.o : cc $source/main.c

@@ -5,6 +5,13 @@
 #include <state.h>
 #include <perft.h>
 
+double get_time() {
+  struct timespec ts;
+  timespec_get(&ts, TIME_UTC);
+
+  return (double)ts.tv_sec + (double)ts.tv_nsec / 1e9;
+}
+
 int main() {
   clock_t t1 = clock();
   init_magics();
@@ -16,20 +23,19 @@ int main() {
   printf("Table size = %ld bytes\n", bytes);
   printf("Table init = %ld clocks\n", time);
 
-  clock_t delta = 0;
+  double seconds = 0;
   long total = 0;
 
-  for (int depth = 1; depth <= 12; depth++) {
-    clock_t t1 = clock();
-    int nodes = start_perft(depth);
-    clock_t t2 = clock();
+  for (int depth = 1; depth <= 14; depth++) {
+    double t1 = get_time();
+    long nodes = start_perft(depth);
+    double t2 = get_time();
 
-    printf("%2d: %10d\n", depth, nodes);
+    printf("%2d: %12ld\n", depth, nodes);
 
-    delta += t2 - t1;
+    seconds += t2 - t1;
     total += nodes;
   }
 
-  double seconds = (double)delta / CLOCKS_PER_SEC;
   printf("(%.2f Gnps)\n", total / seconds / 1e9);
 }

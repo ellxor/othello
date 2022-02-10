@@ -3,7 +3,7 @@
 
 #include <state.h>
 
-int perft(state_t state, int depth);
-int start_perft(int depth);
+long perft(state_t state, int depth);
+long start_perft(int depth);
 
 #endif /*_PERFT_H_*/
