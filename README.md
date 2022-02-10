@@ -16,6 +16,7 @@ ninja -C build
 ```
 
 ### Results
+```
 Table size = 700416 bytes
 Table init = 3700 clocks
  1:            4
@@ -33,3 +34,4 @@ Table init = 3700 clocks
 13:  18429641748
 14: 184042084512
 (3.00 Gnps)
+```
