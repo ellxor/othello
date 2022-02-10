@@ -1,4 +1,4 @@
-warnings = -Wall -Wextra -Wno-unused
+warnings = -Wall -Wextra -Wno-unused -pedantic
 optimize = -O3 -march=native
 source   = ../src
 includes = -I$source

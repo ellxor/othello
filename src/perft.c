@@ -5,7 +5,7 @@ int perft(state_t state, int depth) {
   board_t mask = get_moves(state);
 
   if (depth == 1) {
-    return pop(mask) ?: 1;
+    return mask ? pop(mask) : 1;
   }
 
   if (!mask) {
