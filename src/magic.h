@@ -13,7 +13,7 @@ extern board_t attacks[0x15600];
 
 void init_magics();
 
-static board_t moves(int sq, board_t occ) {
+static board_t moves(uint8_t sq, board_t occ) {
   return magics[DDIAG][sq].attacks[pext(occ, magics[DDIAG][sq].mask)]
        | magics[DRANK][sq].attacks[pext(occ, magics[DRANK][sq].mask)]
        | magics[DFILE][sq].attacks[pext(occ, magics[DFILE][sq].mask)];

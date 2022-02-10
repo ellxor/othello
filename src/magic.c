@@ -9,12 +9,12 @@ void init_magics() {
   int idx = 0;
 
   for (int type = 0; type < 3; type++) {
-    board_t (*slider)(int, board_t, bool) =
+    board_t (*slider)(uint8_t , board_t, bool) =
       (type == DDIAG) ? diag_sliders :
       (type == DRANK) ? rank_sliders :
       (type == DFILE) ? file_sliders : 0;
 
-    for (int sq = 0; sq < 64; sq++) {
+    for (uint8_t sq = 0; sq < 64; sq++) {
       board_t mask = slider(sq, 0, false);
       board_t occ = 0;
 

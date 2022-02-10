@@ -21,7 +21,7 @@ static board_t get_moves(state_t state) {
   return mask &~ occ;
 }
 
-static state_t make_move(int sq, state_t state) {
+static state_t make_move(uint8_t sq, state_t state) {
   board_t opp  = moves(sq, ~state.white) & state.black;
   board_t flip = moves(sq, opp);
 

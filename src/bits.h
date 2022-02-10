@@ -12,7 +12,7 @@ typedef uint64_t board_t;
 #define pop(mask)       (__builtin_popcountll(mask))
 #define rotl(mask, s)   (_lrotl(mask, s))
 
-#define bits(sq, mask)  int sq; mask && (sq = ctz(mask)), mask; \
+#define bits(sq, mask)  uint8_t sq; mask && (sq = ctz(mask)), mask; \
                         mask &= mask - 1
 
 #endif /*_BITS_H_*/

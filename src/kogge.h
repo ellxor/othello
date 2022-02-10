@@ -18,7 +18,7 @@ static board_t wrap(int shift) {
          (shift == SW) ? 0x007f7f7f7f7f7f7f : 0;
 }
 
-static board_t sliders(int sq, board_t occ, int shift, bool opp) {
+static board_t sliders(uint8_t sq, board_t occ, int shift, bool opp) {
   board_t gen = bit(sq);
   board_t pro = ~occ & wrap(shift);
 
@@ -36,19 +36,19 @@ static board_t sliders(int sq, board_t occ, int shift, bool opp) {
   return gen;
 }
 
-static board_t diag_sliders(int sq, board_t occ, bool opp) {
+static board_t diag_sliders(uint8_t sq, board_t occ, bool opp) {
   return sliders(sq, occ, NE, opp)
        | sliders(sq, occ, NW, opp)
        | sliders(sq, occ, SE, opp)
        | sliders(sq, occ, SW, opp);
 }
 
-static board_t rank_sliders(int sq, board_t occ, bool opp) {
+static board_t rank_sliders(uint8_t sq, board_t occ, bool opp) {
   return sliders(sq, occ, E, opp)
        | sliders(sq, occ, W, opp);
 }
 
-static board_t file_sliders(int sq, board_t occ, bool opp) {
+static board_t file_sliders(uint8_t sq, board_t occ, bool opp) {
   return sliders(sq, occ, N, opp)
        | sliders(sq, occ, S, opp);
 }
